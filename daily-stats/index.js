@@ -455,13 +455,8 @@ selah.registerBlockSpec({
         const data = JSON.parse(block.props.data || "{}");
         const [isEditing, setIsEditing] = React.useState(false);
 
-        const [isEditable, setIsEditable] = React.useState(editor.isEditable);
-        React.useEffect(() => {
-            const interval = setInterval(() => {
-                if (editor.isEditable !== isEditable) setIsEditable(editor.isEditable);
-            }, 200);
-                return () => clearInterval(interval);
-        }, [editor, isEditable]);
+        // Just read the property directly! No interval needed.
+        const isEditable = editor.isEditable;
 
         const trackers = getActiveTrackers();
         const entries = Object.entries(data).filter(([_, v]) => v);
