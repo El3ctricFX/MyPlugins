@@ -456,7 +456,14 @@ selah.registerBlockSpec({
         const [isEditing, setIsEditing] = React.useState(false);
 
         // Just read the property directly! No interval needed.
-        const isEditable = editor.isEditable;
+        const [isEditable, setIsEditable] = React.useState(editor.isEditable);
+        React.useEffect(() => {
+            // Safely check for mode changes every 1 second (prevents memory leaks)
+            const interval = setInterval(() => {
+                if (editor.isEditable !== isEditable) setIsEditable(editor.isEditable);
+            }, 100);
+            return () => clearInterval(interval);
+        }, [editor, isEditable]);
 
         const trackers = getActiveTrackers();
         const entries = Object.entries(data).filter(([_, v]) => v);
