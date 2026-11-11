@@ -1,0 +1,10 @@
+{
+  "id": "prompted-journal",
+  "name": "Prompted Journal",
+  "version": "1.0.0",
+  "apiVersion": 1,
+  "author": "You",
+  "description": "Journal with prompts, questions, and free-form writing.",
+  "icon": "✍️",
+  "permissions": ["vault:read", "vault:write"]
+}
