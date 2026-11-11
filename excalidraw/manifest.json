@@ -1,0 +1,9 @@
+{
+  "id": "excalidraw-plugin",
+  "name": "Excalidraw",
+  "version": "1.0.0",
+  "author": "Selah Community",
+  "description": "Sketch, diagram, and visualize ideas directly inside your Selah notes with the full power of Excalidraw.",
+  "icon": "✏️",
+  "apiVersion": 1
+}
